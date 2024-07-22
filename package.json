@@ -20,11 +20,14 @@
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.14.11",
+    "@types/uuid": "^10.0.0",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.15.0",
+    "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -34,6 +37,7 @@
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.1",
     "morgan": "^1.10.0",
+    "uuid": "^10.0.0",
     "winston": "^3.13.1"
   }
 }
