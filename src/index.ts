@@ -1,14 +1,24 @@
 import express, { Request, Response } from 'express';
-import authRoutes from './routes/authRoutes';
+import routes from './routes';
+import cors from 'cors';
 require('dotenv').config();
 import {connectToDatabase} from "./config/connection"
+const PORT = process.env.PORT;
 const app = express();
 
 // Middleware
 app.use(express.json());
 
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:5173', // Allow requests from this origin
+    credentials: true, // Allow credentials
+  };
+  app.use(cors(corsOptions));
+
+
 // Routes
-app.use('/api/auth', authRoutes);
+app.use('/api', routes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Welcome to the API! Make a GET request to see this message.');
@@ -16,8 +26,5 @@ app.get('/', (req: Request, res: Response) => {
 
 // Connect to MongoDB
 connectToDatabase()
-
-// Start server
-const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

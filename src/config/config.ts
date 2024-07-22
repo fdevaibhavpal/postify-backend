@@ -8,6 +8,7 @@ const projectName = process.env.APP_NAME;
 const MONGODB_URI = `mongodb+srv://${username}:${password}@${domain}/?retryWrites=true&w=majority&appName=${projectName}`;
 
 export default {
-  MONGO_URI: MONGODB_URI,
-  JWT_SECRET: process.env.JWT_SECRET  || "your_jwt_secret",
+  MONGO_URI: MONGODB_URI || '',
+  JWT_SECRET: process.env.JWT_SECRET  || 'your_jwt_secret',
+  GOOGLE_GEMINI_API_KEY: process.env.GOOGLE_GEMINI_API_KEY || '',
 };
